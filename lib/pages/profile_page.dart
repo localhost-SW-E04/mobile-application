@@ -97,9 +97,18 @@ class _ProfilePageState extends State<ProfilePage> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Terms and Conditions"),
-                Text("  |  "),
-                Text("About Us"),
+                Text(
+                  "Terms and Conditions",
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  "  |  ",
+                  style: TextStyle(color: Colors.grey),
+                ),
+                Text(
+                  "About Us",
+                  style: TextStyle(color: Colors.grey),
+                ),
               ],
             ),
             SizedBox(
