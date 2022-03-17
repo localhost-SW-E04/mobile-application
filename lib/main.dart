@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
-import 'package:sehyog/pages/profile_page.dart';
+import 'package:sehyog/pages/main_dashboard.dart';
 
 void main() {
   runApp(LoginUiApp());
@@ -33,7 +33,9 @@ class LoginUiApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey.shade100,
         primarySwatch: Colors.grey,
       ),
-      home: ProfilePage(),
+      home: MainDashboard(
+          // title: "Your Virtual Medical Assistant.",
+          ),
     );
   }
 }
