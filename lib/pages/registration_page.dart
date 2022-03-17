@@ -6,10 +6,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:rounded_loading_button/rounded_loading_button.dart';
+import 'package:sehyog/pages/widgets/header_widget.dart';
 
 import '../common/theme_helper.dart';
-import '../pages/widgets/header_widget.dart';
-import 'profile_page.dart';
+import 'main_dashboard.dart';
 
 class RegistrationPage extends StatefulWidget {
   @override
@@ -23,6 +23,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
   bool checkedValue = false;
   bool checkboxValue = false;
   bool aadharValid = false;
+  late String name = "";
+  late String email = "";
+  late String aadhaar = "";
+  late String pass = "";
+  late String confimPass = "";
   RoundedLoadingButtonController _controller = RoundedLoadingButtonController();
 
   @override
@@ -54,6 +59,22 @@ class _RegistrationPageState extends State<RegistrationPage> {
                         Container(
                           child: TextFormField(
                             decoration: ThemeHelper().textInputDecoration(
+                                "Full Name", "Enter your full name"),
+                            keyboardType: TextInputType.name,
+                            validator: (val) {
+                              if ((val!.isEmpty)) {
+                                return "Enter a name";
+                              }
+                              name = val;
+                              return null;
+                            },
+                          ),
+                          decoration: ThemeHelper().inputBoxDecorationShaddow(),
+                        ),
+                        SizedBox(height: 20.0),
+                        Container(
+                          child: TextFormField(
+                            decoration: ThemeHelper().textInputDecoration(
                                 "E-mail address", "Enter your email"),
                             keyboardType: TextInputType.emailAddress,
                             validator: (val) {
@@ -62,6 +83,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                       .hasMatch(val)) {
                                 return "Enter a valid email address";
                               }
+                              email = val;
                               return null;
                             },
                           ),
@@ -117,6 +139,9 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                   if (val!.isEmpty || val.length != 12) {
                                     return "Enter a valid aadhar number";
                                   }
+
+                                  aadhaar = val;
+
                                   return null;
                                 },
                               ),
@@ -149,6 +174,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                               if (val!.isEmpty && val.length < 6) {
                                 return "Please enter your password";
                               }
+                              pass = val;
                               return null;
                             },
                           ),
@@ -164,7 +190,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                                     "once again"),
                             validator: (val) {
                               if (val!.isEmpty && val.length < 6) {
-                                return "Please enter your password";
+                                return "Please re-enter your password";
+                              }
+                              confimPass = val;
+                              if (confimPass != pass) {
+                                return "Passwords dont match!";
                               }
                               return null;
                             },
@@ -191,9 +221,11 @@ class _RegistrationPageState extends State<RegistrationPage> {
                             ),
                             onPressed: () {
                               if (_formKey.currentState!.validate()) {
+                                print(
+                                    name + email + aadhaar + pass + confimPass);
                                 Navigator.of(context).pushAndRemoveUntil(
                                     MaterialPageRoute(
-                                        builder: (context) => ProfilePage()),
+                                        builder: (context) => MainDashboard()),
                                     (Route<dynamic> route) => false);
                               }
                             },
