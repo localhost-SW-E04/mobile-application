@@ -6,15 +6,17 @@ class DrawerTile extends StatelessWidget {
     required double drawerIconSize,
     required IconData icon,
     required String text,
+    VoidCallback? onPress,
   })  : _drawerIconSize = drawerIconSize,
         _icon = icon,
         _text = text,
+        _onTap = onPress,
         super(key: key);
 
   final double _drawerIconSize;
   final IconData _icon;
   final String _text;
-
+  final VoidCallback? _onTap;
   @override
   Widget build(BuildContext context) {
     return ListTile(
@@ -30,13 +32,7 @@ class DrawerTile extends StatelessWidget {
           color: Colors.black54,
         ),
       ),
-      onTap: () {
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) =>
-        //             SplashScreen(title: "Splash Screen")));
-      },
+      onTap: _onTap,
     );
   }
 }
