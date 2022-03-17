@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:sehyog/pages/main_dashboard.dart';
+import 'package:sehyog/pages/profile_page.dart';
 
 import 'drawer_tile.dart';
 
@@ -36,6 +38,14 @@ class NavigationDrawer extends StatelessWidget {
                   icon: Icons.dashboard_rounded,
                   text: "Dashboard",
                   drawerIconSize: _drawerIconSize,
+                  onPress: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MainDashboard(),
+                      ),
+                    );
+                  },
                 ),
                 DrawerTile(
                   icon: Icons.local_pharmacy_rounded,
@@ -43,9 +53,17 @@ class NavigationDrawer extends StatelessWidget {
                   drawerIconSize: _drawerIconSize,
                 ),
                 DrawerTile(
-                  icon: Icons.history_rounded,
-                  text: "Medical History",
+                  icon: Icons.account_circle,
+                  text: "Profile",
                   drawerIconSize: _drawerIconSize,
+                  onPress: () {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ProfilePage(),
+                      ),
+                    );
+                  },
                 ),
                 DrawerTile(
                   icon: Icons.contact_phone_rounded,
