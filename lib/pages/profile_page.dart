@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:sehyog/pages/widgets/common_app_bar.dart';
 import 'package:sehyog/pages/widgets/navigation_drawer.dart';
 
 import '../pages/widgets/header_widget.dart';
@@ -17,35 +18,7 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: Text(
-          "Profile Page",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
-        ),
-        elevation: 0.5,
-        iconTheme: IconThemeData(color: Colors.white),
-        flexibleSpace: Container(
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
-              colors: <Color>[
-                Theme.of(context).primaryColor,
-                Theme.of(context).accentColor,
-              ],
-            ),
-          ),
-        ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.only(right: 16.0),
-            child: Icon(
-              Icons.logout_rounded,
-            ),
-          ),
-        ],
-      ),
+      appBar: commonAppBar(context, "Profile Page"),
       drawer: NavigationDrawer(drawerIconSize: _drawerIconSize),
       body: Stack(
         children: [
