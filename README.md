@@ -1,5 +1,9 @@
 # Sehyog
 
+<p align="center">
+<img align="center" src="assets\images\sehyog.png" width="650px"/>
+</p>
+
 Your virtual medical assistant.
 
 ## Getting Started
