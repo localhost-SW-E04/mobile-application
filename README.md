@@ -1,4 +1,4 @@
-# sehyog
+# Sehyog
 
 Your virtual medical assistant.
 
