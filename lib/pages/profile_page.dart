@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:sehyog/pages/widgets/drawer_tile.dart';
+import 'package:sehyog/pages/widgets/navigation_drawer.dart';
 
 import '../pages/widgets/header_widget.dart';
 
@@ -13,7 +13,6 @@ class ProfilePage extends StatefulWidget {
 
 class _ProfilePageState extends State<ProfilePage> {
   double _drawerIconSize = 24;
-  double _drawerFontSize = 17;
 
   @override
   Widget build(BuildContext context) {
@@ -47,76 +46,7 @@ class _ProfilePageState extends State<ProfilePage> {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Expanded(
-              child: ListView(
-                children: [
-                  DrawerHeader(
-                    child: Container(
-                      alignment: Alignment.bottomLeft,
-                      child: Center(
-                        child: Image(
-                          image: AssetImage(
-                            "assets/images/sehyog.png",
-                          ),
-                          width: 250,
-                        ),
-                      ),
-                    ),
-                  ),
-                  DrawerTile(
-                    icon: Icons.dashboard_rounded,
-                    text: "Dashboard",
-                    drawerIconSize: _drawerIconSize,
-                  ),
-                  DrawerTile(
-                    icon: Icons.local_pharmacy_rounded,
-                    text: "Pharmacy",
-                    drawerIconSize: _drawerIconSize,
-                  ),
-                  DrawerTile(
-                    icon: Icons.history_rounded,
-                    text: "Medical History",
-                    drawerIconSize: _drawerIconSize,
-                  ),
-                  DrawerTile(
-                    icon: Icons.contact_phone_rounded,
-                    text: "Contact Us",
-                    drawerIconSize: _drawerIconSize,
-                  ),
-                  DrawerTile(
-                    icon: Icons.logout_rounded,
-                    text: "Logout",
-                    drawerIconSize: _drawerIconSize,
-                  ),
-                ],
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  "Terms and Conditions",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  "  |  ",
-                  style: TextStyle(color: Colors.grey),
-                ),
-                Text(
-                  "About Us",
-                  style: TextStyle(color: Colors.grey),
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 8,
-            ),
-          ],
-        ),
-      ),
+      drawer: NavigationDrawer(drawerIconSize: _drawerIconSize),
       body: Stack(
         children: [
           Container(
